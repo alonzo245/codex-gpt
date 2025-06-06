@@ -2,6 +2,8 @@
 
 This is a simple Todo application built with Next.js and TypeScript.
 
+Todos are persisted in your browser's local storage so you won't lose them on refresh.
+
 ## Development
 
 ```bash

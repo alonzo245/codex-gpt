@@ -12,6 +12,21 @@ export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
+    const stored = localStorage.getItem('todos');
+    if (stored) {
+      try {
+        setTodos(JSON.parse(stored));
+      } catch {
+        // ignore parsing errors
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
+
+  useEffect(() => {
     document.body.classList.toggle('dark', darkMode);
   }, [darkMode]);
 
