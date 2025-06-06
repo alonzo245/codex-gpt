@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { TodoItem } from '../components/TodoItem';
 
 interface Todo {
@@ -9,6 +9,11 @@ interface Todo {
 export default function Home() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [input, setInput] = useState('');
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.toggle('dark', darkMode);
+  }, [darkMode]);
 
   const addTodo = () => {
     if (!input.trim()) return;
@@ -23,6 +28,9 @@ export default function Home() {
   return (
     <div style={{ maxWidth: 600, margin: '2rem auto', padding: '0 1rem' }}>
       <h1>Todo App</h1>
+      <button onClick={() => setDarkMode(!darkMode)} style={{ marginBottom: '1rem' }}>
+        Toggle {darkMode ? 'Light' : 'Dark'} Mode
+      </button>
       <div>
         <input
           value={input}
