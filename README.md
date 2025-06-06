@@ -10,3 +10,12 @@ npm run dev
 ```
 
 Visit `http://localhost:3000` to see the app.
+
+## GitHub Pages
+
+A simple static page is provided under the `docs/` folder. To publish it on GitHub Pages:
+
+1. Push this repository to GitHub.
+2. In the repository settings, enable **GitHub Pages** and choose the `main` branch and `docs/` folder as the source.
+3. Save the settings and your page will be available at `https://<username>.github.io/<repository-name>/`.
+
